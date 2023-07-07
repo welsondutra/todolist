@@ -1,0 +1,164 @@
+/* reset page*/
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: monospace;
+  color: #222c31;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #062E6F;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 30px;
+  padding: .5rem .8rem;
+  color: #fff;
+  background-color: #2282f0;
+
+  border: none;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+button:hover {
+  opacity: .7;
+}
+button i {
+  color: #fff;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+input,
+select {
+  background-color: #c0c2cf;
+  color: #222c31;
+  padding: .5rem 1rem;
+  border: none;
+  outline: 'none';
+  margin: .25rem 0 0 0;
+  width: 100%;
+
+  border-radius: 10px;
+}
+
+
+
+
+.todo-container {
+  max-width: 450px;
+  margin: 3rem auto 0;
+  background-color: #fff;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.todo-container hr {
+  margin: .5rem 0;
+}
+.todo-container header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#todo-form,
+#edit-form  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: .5rem 0;
+}
+#edit-form.hide {
+  display: none;
+}
+
+
+.form-control {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding:  .5rem 0 ;
+}
+.form-control input {
+  height: 30px;
+  width: 90%;
+}
+.form-control button {
+  width: 5rem;
+  height: 30px;
+  margin: 0 0 0 .5rem;
+}
+
+#tollbar {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#search,
+#filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: .5rem 0;
+} 
+
+h4 {
+  display: flex;
+}
+
+#tollbar {
+  padding: .5rem  0;
+}
+
+#search form {
+  display: flex;
+  margin: .5rem 0 0 0;
+}
+#search input {
+  margin: 0 .3rem 0 0;
+  width: 23rem;
+  height: 30px;
+}
+
+#filter select {
+  display: flex;
+  margin: .5rem 0 0 0;
+  height: 30px;
+}
+
+.todo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 5px;
+}
+.done {
+  background-color: #a3ffa7;
+}
+
+.todo input {
+  display: flex;
+  margin: .25rem;
+  width: 2rem;
+}
+.todo h4 {
+  flex: 1;
+  font-size: 14px;
+}
+.todo button {
+  margin-left: .4rem;
+}
+

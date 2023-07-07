@@ -1,13 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todo-List Welson</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>To-do List Welson</title>
+  <!--Css-->
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Font Awesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!--Js project-->
   <script src="js/scrips.js" defer></script>
 </head>
+
 <body>
-  
+  <div class="todo-container">
+    <header>
+      <h1>To-do List</h1>
+    </header>
+    <hr />
+    <form action="" id="todo-form">
+      Adicione uma tarefa
+      <div class="form-control">
+        <input type="text" id="todo-input" placeholder="Digite uma tarefa" />
+        <button type="submit">
+          <i class="fa-thin fa-plus"></i>
+        </button>
+      </div>
+    </form>
+    <!--Aqui o hide-->
+    <form action="" id="edit-form" class="">
+      <p>Edite sua tarefa</p>
+      <div class="form-control">
+        <input type="text" name="" id="edit-input" placeholder="colocar a tarefa" />
+        <button type="submit">
+          <i class="fa-solid fa-check"></i>
+        </button>
+      </div>
+      <button id="cancel-edit-btn">Cancelar</button>
+    </form>
+    <hr>
+    <div id="tollbar">
+      <div id="search">
+        <h4>Pesquisar</h4>
+        <form action="">
+          <input type="text" name="search-input" placeholder="Buscar" />
+        </form>
+      </div>
+      <div id="filter">
+        <h4>Filtrar</h4>
+        <select id="filter-select">
+          <option value="all">Todos</option>
+          <option value="pending">Pendente</option>
+          <option value="done">Concluido</option>
+        </select>
+      </div>
+    </div>
+    <hr>
+    <div id="todo-list">
+      <div class="todo done">
+        <input type="checkbox" name="done-checkbox" id="done-checkbox">
+        <h4>Comprar carne
+        </h4>
+        <button class="edit-todo"><i class="fa-solid fa-pen"></i></button>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>
