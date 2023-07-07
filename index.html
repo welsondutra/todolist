@@ -21,8 +21,10 @@
       <h1>To-do List</h1>
     </header>
     <hr />
-    <form action="" id="todo-form">
-      Adicione uma tarefa
+    <form id="todo-form" class="">
+      <h4>
+        Adicione uma tarefa
+      </h4>
       <div class="form-control">
         <input type="text" id="todo-input" placeholder="Digite uma tarefa" />
         <button type="submit">
@@ -30,11 +32,10 @@
         </button>
       </div>
     </form>
-    <!--Aqui o hide-->
-    <form action="" id="edit-form" class="">
-      <p>Edite sua tarefa</p>
+    <form id="edit-form" class="hide">
+      <h4>Edite sua tarefa</h4>
       <div class="form-control">
-        <input type="text" name="" id="edit-input" placeholder="colocar a tarefa" />
+        <input type="text" id="edit-input" placeholder="colocar a tarefa" />
         <button type="submit">
           <i class="fa-solid fa-check"></i>
         </button>
@@ -45,8 +46,8 @@
     <div id="tollbar">
       <div id="search">
         <h4>Pesquisar</h4>
-        <form action="">
-          <input type="text" name="search-input" placeholder="Buscar" />
+        <form id="search-form" class="search-form">
+          <input type="text" id="search-input" placeholder="Buscar" />
         </form>
       </div>
       <div id="filter">
@@ -58,11 +59,23 @@
         </select>
       </div>
     </div>
-    <hr>
     <div id="todo-list">
-      <div class="todo done">
-        <input type="checkbox" name="done-checkbox" id="done-checkbox">
+      <hr>
+      <div class="todo pending">
+        <input type="checkbox" class="done-checkbox" id="1">
         <h4>Comprar carne
+        </h4>
+        <button class="edit-todo"><i class="fa-solid fa-pen"></i></button>
+      </div>
+      <div class="todo done">
+        <input type="checkbox" checked class="done-checkbox" id="2">
+        <h4>Fazer dever
+        </h4>
+        <button class="edit-todo"><i class="fa-solid fa-pen"></i></button>
+      </div>
+      <div class="todo pending">
+        <input type="checkbox" class="done-checkbox" id="3">
+        <h4>Estudar
         </h4>
         <button class="edit-todo"><i class="fa-solid fa-pen"></i></button>
       </div>
