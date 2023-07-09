@@ -80,6 +80,16 @@ select {
   padding: 0.5rem 0;
 }
 
+.edit-action {
+  display: flex;
+  width: 10rem;
+  justify-content: space-around;
+}
+
+#remove-task-btn {
+  background-color: #ff0000;
+}
+
 .form-control {
   display: flex;
   flex-direction: row;

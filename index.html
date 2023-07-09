@@ -7,6 +7,9 @@
   <title>To-do List Welson</title>
   <!--Css-->
   <link rel="stylesheet" href="css/styles.css">
+  <!--Jquery-->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   <!-- Font Awesome-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -40,7 +43,11 @@
           <i class="fa-solid fa-check"></i>
         </button>
       </div>
-      <button id="cancel-edit-btn">Cancelar</button>
+      <div class="edit-action">
+        <button id="cancel-edit-btn">Cancelar</button>
+        <button id="remove-task-btn" type="button"><i class="fa-solid fa-trash"></i></button>
+      </div>
+
     </form>
     <hr>
     <div id="tollbar">

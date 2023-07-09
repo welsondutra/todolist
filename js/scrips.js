@@ -1,112 +1,133 @@
 "use strict";
 
-const todoForm = document.querySelector("#todo-form");
-const todoInput = document.querySelector("#todo-input");
-const editForm = document.querySelector("#edit-form");
-const editInput = document.querySelector("#edit-input");
-const cancelEdit = document.querySelector("#cancel-edit-btn");
-const todoList = document.querySelector("#todo-list");
-const tollbar = document.querySelector("#tollbar");
-const searchForm = document.querySelector("#search-form");
-const filterSelect = document.querySelector("#filter-select");
+const todoForm = $("#todo-form");
+
+const todoInput = $("#todo-input");
+const editForm = $("#edit-form");
+const editInput = $("#edit-input");
+const cancelEditBtn = $("#cancel-edit-btn");
+const removeTaskBtn = $("#remove-task-btn");
+const todoList = $("#todo-list");
+const tollbar = $("#tollbar");
+const searchForm = $("#search-form");
+const filterSelect = $("#filter-select");
+
+
+// Funções
 
 const saveTask = (prop) => {
   //função para salvar no banco de dados
-  console.log("Inserir:" + prop);
+  //atualizar a lista no front
+  console.log('save' + prop);
 };
 
 const updateTask = (props) => {
   //função para salvar no banco
-  //atualizar a lista no db
-  console.log("aleterar para isso" + props);
+  //atualizar a lista no front
+  console.log("update" + props);
   visibilityElements();
 };
 
+const removeTask = (props) => {
+  //função para salvar no banco
+  //atualizar a lista no front
+  console.log('remove' + props);
+}
+
 const visibilityElements = () => {
-  editForm.classList.toggle("hide");
-  todoForm.classList.toggle("hide");
-  todoList.classList.toggle("hide");
-  tollbar.classList.toggle("hide");
+  $(editForm).toggleClass("hide");
+  $(todoForm).toggleClass("hide");
+  $(todoList).toggleClass("hide");
+  $(tollbar).toggleClass("hide");
 };
 
-todoForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+// Eventos 
+$(document).ready(() => {
+  $(todoForm).submit((e) => {
+    e.preventDefault();
 
-  const input = todoInput.value;
+    const input = $(todoInput).val();
+    if (input) {
+      saveTask(input);
+    };
+  });
 
-  if (input) {
-    saveTask(input);
-  }
+  $(editForm).submit((e) => {
+    e.preventDefault();
+
+    const input = $(editInput).val();
+    if (input) {
+      updateTask(input);
+    }
+  });
+
+  $(cancelEditBtn).click((e) => {
+    e.preventDefault();
+    console.log(e);
+    visibilityElements();
+  });
+
+  $(removeTaskBtn).click((e) => {
+    e.preventDefault();
+
+    console.log(e);
+    visibilityElements();
+  });
+
 });
 
-editForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const input = editInput.value;
 
-  if (input) {
-    updateTask(e.target);
-  }
-});
-
-document.addEventListener("click", (e) => {
+$(document).on("click", (e) => {
   const target = e.target;
-  const parent = target.closest("div");
+  const parent = $(target).closest("div");
   let taskTitle;
 
-  if (target.classList.contains("done-checkbox")) {
-    parent.classList.toggle("done");
-    parent.classList.toggle("pending");
+  if ($(target).hasClass("done-checkbox")) {
+    $(parent).toggleClass("done pending");
 
-    //aqui colocar no banco quando ficar pronto
+    //aqui alterar no banco se ta feito ou não 
   }
 
-  if (parent && parent.querySelector("h4")) {
-    taskTitle = parent.querySelector("h4").innerText;
+  if (parent && $(parent).find("h4").length > 0) {
+    taskTitle = $(parent).find("h4").text();
   }
 
-  if (target.classList.contains("edit-todo")) {
+  if ($(target).hasClass("edit-todo")) {
     e.preventDefault();
 
     visibilityElements();
-    editInput.value = taskTitle;
+    editInput.val(taskTitle);
   }
-});
-
-cancelEdit.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  visibilityElements();
 });
 
 const searchValidation = (text, select) => {
-  const tasks = todoList.getElementsByClassName("todo");
+  const tasks = $(todoList).find(".todo");
 
-  for (let i = 0; i < tasks.length; i++) {
-    const task = tasks[i];
-    const h4 = task.getElementsByTagName("h4")[0];
-    const textH4 = h4.textContent.toLowerCase();
+  tasks.each((index, task) => {
+    const h4 = $(task).find("h4").first();
+    const textH4 = h4.text().toLowerCase();
     const hasText = textH4.includes(text);
-    const hasSelect = select === "all" || task.classList.contains(select);
+    const hasSelect = select === "all" || $(task).hasClass(select);
 
     if (hasText && hasSelect) {
-      task.style.display = "flex";
+      $(task).css("display", "flex");
     } else {
-      task.style.display = "none";
+      $(task).css("display", "none");
     }
-  }
+  });
 };
 
-searchForm.addEventListener("input", (e) => {
+searchForm.on("input", function (e) {
   e.preventDefault();
 
-  const text = e.target.value.toLowerCase();
-  const select = filterSelect.value.toLowerCase();
+  const text = $(this).val().toLowerCase();
+  const select = filterSelect.val().toLowerCase();
   searchValidation(text, select);
 });
 
-filterSelect.addEventListener("change", () => {
-  const text = searchForm?.value?.toLowerCase() || "";
-  const select = filterSelect.value.toLowerCase();
+filterSelect.on("change", function () {
+  const text = searchForm.val()?.toLowerCase() || "";
+  const select = $(this).val().toLowerCase();
 
   searchValidation(text, select);
 });
