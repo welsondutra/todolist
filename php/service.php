@@ -10,7 +10,8 @@ if ($connection->connect_error) {
   die('Erro na conexão com o banco de dados: ' . $connection->connect_error);
 }
 
-$action = $_POST['action'];
+$action = isset($_POST['action']) ? $_POST['action'] : '';
+
 
 if ($action === 'create') {
   $task = $_POST['task'];
