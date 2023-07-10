@@ -171,5 +171,7 @@ h4 {
 
 #todo-list {
   max-height: 15rem;
-  overflow: scroll;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
 }
