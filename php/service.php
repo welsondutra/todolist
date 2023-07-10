@@ -1,8 +1,8 @@
 <?php
-$host = 'todolist-db.cty67nvghiz3.us-east-2.rds.amazonaws.com';
-$username = 'admin';
-$password = 'adminXN30';
-$database = 'todo_list';
+$host = getenv('DB_HOST');
+$username = getenv('DB_USER');
+$password = getenv('DB_PASSWORD');
+$database = getenv('DB_NAME');
 
 $connection = new mysqli($host, $username, $password, $database);
 
